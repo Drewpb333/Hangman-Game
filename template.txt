@@ -1,0 +1,26 @@
+*Template for Hangman Game
+
+Theme will be NFL teams
+
+User will have up to 8(?) chances to correctly solve the puzzle
+
+Every incorrect answer will detract from the number of chances and the letter entered will be displayed
+in a box
+
+Every correct answer will have a letter pop up above the correct underlined spacing
+
+Coding(in order):
+
+Use a math.random() function to choose the correct team from the array
+
+assign this team a variable
+
+When the user types in a letter, assign a variable to the event.key (key entered)
+
+use contains() to find out if event.key variable is located within selected team variable
+
+if yes, use indexof to find out where it is located.
+
+Add this letter to correct underlined option
+
+**feel free to go back and condense code into loops, objects, etc. later
