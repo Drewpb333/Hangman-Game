@@ -1,0 +1,42 @@
+body{
+    background: url("../images/background.png");
+}
+
+header{
+    padding: 0 381.5px;
+}
+
+header img{
+    width: 500px;
+    height: 280px;
+}
+
+.main-content{
+    width: 650px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+    color: red;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.bottom-container{
+    height: 500px;
+    width: 300px;
+    border: 5px solid blue;
+    float: left;
+    border-bottom: none;
+    background-color: white;
+    text-align: center;
+    opacity: 0.85;
+}
+
+#left-container{
+    margin-right: 50px;
+}
+
+.thumbnail{
+    opacity: 1;
+}

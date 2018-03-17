@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>NFL Hangman</title>
     <link href='assets/css/reset.css' type='text/css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href='assets/css/style.css' type='text/css' rel='stylesheet'>   
     <script src='assets/javascript/game.js' type='text/javascript'></script> 
 </head>
@@ -15,20 +18,37 @@
     Guesses Left:   
     Wins:
     Losses: -->
-    <div>
-        Word to Guess: <span id='correct-letters'></span>
-    </div>
-    <div>
-        Wrong Guesses: <span id="wrong-guesses"></span>
-    </div>
-    <div>
-        Remaining Guesses: <span id='remaining-guesses'>8</span>
-    </div>
-    <div id='wins'>
-    </div>
-    <div id='losses'>
-    </div>
-    <div id='result'>
-    </div>
+        <header>
+                <img src="assets/images/nfl_logo.jpg" alt="nfl logo">
+        </header>
+        <div class="main-content">
+            <div class="bottom-container" id="left-container">
+                <div id='hangman-image'>
+                    <div class="thumbnail">
+                        <img src="assets/images/nfl_logo.jpg" alt="nfl logo">
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-container" id="right-container">
+                <div id="begin game">
+                    Press any key to start!
+                </div>
+                <div>
+                    Current Word: <br><span id='correct-letters'></span><br>
+                </div>
+                <div>
+                    Remaining Guesses: <br><span id='remaining-guesses'>8</span>
+                </div>
+                <div>
+                    Letters Already Guessed: <span id="wrong-guesses"></span>
+                </div>
+                <div id='wins'>
+                </div>
+                <div id='losses'>
+                </div>
+                <div id='result'>
+                </div>
+            </div>
+        </div>
 </body>
 </html>
