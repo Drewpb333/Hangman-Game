@@ -28,9 +28,6 @@ function blankSpaces(){
 };
 
 function resetGame(){
-    // setTimeout(function(){
-    //     initializeGame = false;
-    // }, 4000);
     correctLetters= [];
     alreadyUsedLetters = [];
     wrongGuesses = [];
@@ -38,7 +35,6 @@ function resetGame(){
     numberOfGuesses = 8;
     $("#remaining-guesses").html(numberOfGuesses);
     numberOfLetters = 0;
-    // random team selection
     randomTeamName = nflTeamNames[Math.floor(Math.random() * nflTeamNames.length)];
     blankSpaces();
     initializeGame = true;
@@ -49,14 +45,13 @@ blankSpaces();
 if(initializeGame){
     document.onkeyup = function(event) {
         var userGuess = event.key.toLowerCase();
-        // letterIndexAssign(randomTeamName, userGuess);
         $("#correct-letters").html(correctLetters.join(""));
+        // If guess is correct
         if(randomTeamName.includes(userGuess) && !correctLetters.includes(userGuess)){
-            // insert userGuess.indexof method here
             letterIndexAssign(randomTeamName, userGuess);
-            // letterLocation = randomTeamName.indexOf(userGuess);
             alreadyUsedLetters.push(userGuess);
             $("#correct-letters").html(correctLetters.join(""));
+            // user wins
             if(numberOfLetters === randomTeamName.length){
                 $("#result").html("Congratulations, you won!");
                 setTimeout(function(){
@@ -67,14 +62,19 @@ if(initializeGame){
                 resetGame();
             }
         }
+        //if guess is not correct
         else if(!randomTeamName.includes(userGuess) && !alreadyUsedLetters.includes(userGuess)){
             alreadyUsedLetters.push(userGuess);
             wrongGuesses.push(userGuess);
             $("#wrong-guesses").html(wrongGuesses.join(" "));
             numberOfGuesses--;
             $("#remaining-guesses").html(numberOfGuesses);
+            // user loses
             if(numberOfGuesses <= 0){
                 $("#result").html("Sorry, you lost. Better luck next time!");
+                setTimeout(function(){
+                    $("#result").empty();
+                }, 4000);
                 resetGame();
             }
         }

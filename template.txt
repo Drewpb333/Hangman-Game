@@ -23,4 +23,8 @@ if yes, use indexof to find out where it is located.
 
 Add this letter to correct underlined option
 
-**feel free to go back and condense code into loops, objects, etc. later
+If user guess is correct, say congratulations.
+
+If user guess is wrong, say better luck next time.
+
+Reset all variables to initial values.
