@@ -1,5 +1,10 @@
+html{
+    height: 100%;
+}
+
 body{
     background: url("../images/background.png");
+    min-height: 100%;
 }
 
 header{
@@ -13,21 +18,20 @@ header img{
 
 .main-content{
     width: 650px;
-    height: 250px;
+    height: 100%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 35px;
     color: red;
-    font-size: 28px;
+    font-size: 22px;
     font-weight: 600;
 }
 
 .bottom-container{
-    height: 500px;
     width: 300px;
+    height: 280px;
     border: 5px solid blue;
     float: left;
-    border-bottom: none;
     background-color: white;
     text-align: center;
     opacity: 0.85;
@@ -37,6 +41,7 @@ header img{
     margin-right: 50px;
 }
 
-.thumbnail{
+.thumbnail img{
     opacity: 1;
+    max-height: 200px;
 }
