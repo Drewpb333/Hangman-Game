@@ -24,61 +24,58 @@ function blankSpaces(){
     for(var i=0; i < randomTeamName.length; i++){
     correctLetters[i] = "_ ";
     };
-    $("correct-letters").text = correctLetters;
+    $("#correct-letters").html(correctLetters.join(""));
 };
 
 function resetGame(){
-    setTimeout(function(){
-        initializeGame = false;
-    }, 4000);
+    // setTimeout(function(){
+    //     initializeGame = false;
+    // }, 4000);
     correctLetters= [];
     alreadyUsedLetters = [];
     wrongGuesses = [];
     $("#wrong-guesses").empty();
     numberOfGuesses = 8;
-    document.querySelector("#remaining-guesses").innerHTML = numberOfGuesses;
+    $("#remaining-guesses").html(numberOfGuesses);
     numberOfLetters = 0;
     // random team selection
     randomTeamName = nflTeamNames[Math.floor(Math.random() * nflTeamNames.length)];
     blankSpaces();
     initializeGame = true;
-    console.log(randomTeamName);
 }
 
 
-console.log(randomTeamName); //delete when program is finished
 blankSpaces();
-console.log(correctLetters);
-
 if(initializeGame){
     document.onkeyup = function(event) {
         var userGuess = event.key.toLowerCase();
         // letterIndexAssign(randomTeamName, userGuess);
-        document.querySelector("#correct-letters").innerHtml = correctLetters.join("");
+        $("#correct-letters").html(correctLetters.join(""));
         if(randomTeamName.includes(userGuess) && !correctLetters.includes(userGuess)){
             // insert userGuess.indexof method here
             letterIndexAssign(randomTeamName, userGuess);
             // letterLocation = randomTeamName.indexOf(userGuess);
             alreadyUsedLetters.push(userGuess);
-            document.querySelector("#correct-letters").innerHTML = correctLetters.join("");
+            $("#correct-letters").html(correctLetters.join(""));
             if(numberOfLetters === randomTeamName.length){
                 $("#result").html("Congratulations, you won!");
+                setTimeout(function(){
+                    $("#result").empty();
+                }, 4000);
                 $("#hangman-image").html("<div class='thumbnail'><img src='assets/images/" + randomTeamName + ".jpg' \
                 alt='Team Logo'></div>" + correctLetters.join(""));
                 resetGame();
-                initializeGame = false;
             }
         }
         else if(!randomTeamName.includes(userGuess) && !alreadyUsedLetters.includes(userGuess)){
             alreadyUsedLetters.push(userGuess);
             wrongGuesses.push(userGuess);
-            document.querySelector("#wrong-guesses").innerHTML = wrongGuesses.join(" ");
+            $("#wrong-guesses").html(wrongGuesses.join(" "));
             numberOfGuesses--;
-            document.querySelector("#remaining-guesses").innerHTML = numberOfGuesses;
+            $("#remaining-guesses").html(numberOfGuesses);
             if(numberOfGuesses <= 0){
-                document.querySelector("#result").innerHTML = "Sorry, you lost. Better luck next time!";
+                $("#result").html("Sorry, you lost. Better luck next time!");
                 resetGame();
-                initializeGame = false;
             }
         }
     }
